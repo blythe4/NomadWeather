@@ -1,51 +1,68 @@
-import {StyleSheet, Text, View, StatusBar, Alert} from "react-native";
+import {StyleSheet, Text, View, StatusBar} from "react-native";
 import PropTypes from'prop-types';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient';
-import {useEffect} from "react";
 
 const weatherOptions = {
     Thunderstorm : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-lightning",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Thunderstorm",
+        subtitle:"Thunderstorm",
     },
     Drizzle : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-rainy",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Drizzle",
+        subtitle:"Drizzle",
     },
     Rain : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-pouring",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Rain",
+        subtitle:"Rain",
     },
     Snow : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-snowy",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Snow",
+        subtitle:"Snow",
     },
     Atmosphere : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-hazy",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Atmosphere",
+        subtitle:"Atmosphere",
     },
     Clear : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-sunny",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Clear",
+        subtitle:"Clear",
     },
     Clouds : {
         iconName : "weather-cloudy",
         gradient: ['#22c1c3','#fdbb2d'],
         title: "Clouds",
-        subtitle:"I knew, fucking boring",
+        subtitle:"Clouds",
     },
     Haze : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-hazy",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Haze",
+        subtitle:"Haze",
     },
     Mist : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-pouring",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Mist",
+        subtitle:"Mist",
     },
     Dust : {
-        iconName : "weather-cloudy",
-        gradient: ['#e8cbc0','#636fa4']
+        iconName : "weather-hazy",
+        gradient: ['#e8cbc0','#636fa4'],
+        title: "Dust",
+        subtitle:"Dust",
     },
 }
 
@@ -56,7 +73,7 @@ const Weather = ({temp, condition}) => {
             style={styles.container}
         >
             <StatusBar barStyle="light-content" />
-            <View style={styles.halfContainer}>
+            <View style={{...styles.halfContainer, ...styles.tempContainer}}>
                 <MaterialCommunityIcons name={weatherOptions[condition].iconName} size={100} color="white" />
                 <Text style={styles.temp}>{temp}</Text>
             </View>
@@ -78,7 +95,6 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent: "center",
-        alignItems: "center"
     },
     halfContainer : {
         flex : 1,
@@ -99,6 +115,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "600",
         color: 'white'
+    },
+    tempContainer: {
+        paddingHorizontal: 20,
+        alignItems: "center"
     },
     textContainer: {
         paddingHorizontal: 20,

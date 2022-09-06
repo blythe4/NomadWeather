@@ -1,7 +1,7 @@
 import Loading from "./Loading";
 import * as Location from 'expo-location'
 import {useEffect, useState} from "react";
-import {StyleSheet,Alert, Text, View} from "react-native";
+import {StyleSheet, Alert} from "react-native";
 import axios from 'axios';
 import Weather from "./Weather";
 
@@ -38,8 +38,7 @@ export default function App() {
     }, []);
 
     return (
-
-    isLoading ? <Loading /> : <Weather temp={weatherData.temp} condition={weatherData.condition} />
+        isLoading ? <Loading /> : <Weather temp={weatherData.temp} condition={weatherData.condition} />
     );
 }
 

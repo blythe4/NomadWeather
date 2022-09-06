@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import {StyleSheet, Text, StatusBar, SafeAreaView, View} from "react-native";
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="dark-content" />
-            <Text style={styles.text}>현재 위치의 날씨 정보를 가져오는중...</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.container}>
+                <StatusBar barStyle="dark-content" />
+                <Text style={styles.text}>현재 위치의 날씨 정보를 가져오는중...</Text>
+            </View>
+        </SafeAreaView>
     );
 }
 
