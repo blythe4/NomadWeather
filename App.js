@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignContent: "center",
-        paddingHorizontal: 30,
-        paddingVertical: 100,
-        backgroundColor: "#fdf6aa",
     },
     paragraph: {
         color : "#2c2c2c",

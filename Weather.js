@@ -1,7 +1,8 @@
-import {StyleSheet, Text, View, StatusBar} from "react-native";
+import {StyleSheet, Text, View, StatusBar, SafeAreaView, Button, Switch} from "react-native";
 import PropTypes from'prop-types';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient';
+import Header from "./component/Header";
 
 const weatherOptions = {
     Thunderstorm : {
@@ -68,20 +69,28 @@ const weatherOptions = {
 
 const Weather = ({temp, condition}) => {
     return (
-        <LinearGradient
-            colors={weatherOptions[condition].gradient}
-            style={styles.container}
-        >
-            <StatusBar barStyle="light-content" />
-            <View style={{...styles.halfContainer, ...styles.tempContainer}}>
-                <MaterialCommunityIcons name={weatherOptions[condition].iconName} size={100} color="white" />
-                <Text style={styles.temp}>{temp}</Text>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.container}>
+                <StatusBar barStyle="dark-content"/>
+                <Header/>
+                <LinearGradient
+                    colors={weatherOptions[condition].gradient}
+                    style={styles.container}
+                >
+                    <View style={{...styles.halfContainer, ...styles.tempContainer}}>
+                        <MaterialCommunityIcons name={weatherOptions[condition].iconName} size={100} color="white"/>
+                        <Text style={styles.temp}>{temp}</Text>
+                    </View>
+                    <View style={{...styles.halfContainer, ...styles.textContainer}}>
+                        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+                        <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
+                    </View>
+                </LinearGradient>
             </View>
-            <View style={{...styles.halfContainer, ...styles.textContainer}}>
-                <Text style={styles.title}>{weatherOptions[condition].title}</Text>
-                <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
-            </View>
-        </LinearGradient>
+
+        </SafeAreaView>
+
+
     )
 }
 export default Weather
